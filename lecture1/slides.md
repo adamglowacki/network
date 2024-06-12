@@ -68,10 +68,26 @@ We don't deal with electronics.
 
 ---
 
+# How to connect
+
+```
+💻╺━━━┳━━━╸BRIDGE╺━━━━━━━╸💻
+      ┃                     
+💻╺━━━╋━━━╸BRIDGE╺━━━┳━━━╸💻
+      ┃              ┃      
+💻╺━━━┛              ┗━━━╸💻
+```
+* addresses
+* throughput
+* multiple routes
+* fault tolerance
+
+---
+
 # Stack
 
 * Ethernet
-* IP
+* IPv4
 * TCP
 
 ---
@@ -87,6 +103,7 @@ We don't deal with electronics.
 ┃  TO (MAC)  ┃
 ┣━━━━━━━━━━━━┫
 ┃ FROM (MAC) ┃
+┣━━━━━━━━━━━━┫
 ┃ .......... ┃
 ┣━━━━━━━━━━━━┫
 ┃  PAYLOAD   ┃
@@ -99,18 +116,40 @@ We don't deal with electronics.
 
 # Ethernet
 
-* shared medium
-* collision detection (CSMA/CD)
+MAC
+```
+❯ ip link show enp0s31f6 | grep link/ether
+    link/ether e8:6a:64:41:d6:9a brd ff:ff:ff:ff:ff:ff
+```
 
 ---
 
-# packet overview
-
-
+# IPv4 packet
+```
+┏━━━━━━━━━━━┓
+┃ ......... ┃
+┣━━━━━━━━━━━┫
+┃   TTL     ┃
+┣━━━━━━━━━━━┫
+┃ PROTOCOL  ┃
+┣━━━━━━━━━━━┫
+┃  TO (IP)  ┃
+┣━━━━━━━━━━━┫
+┃ FROM (IP) ┃
+┣━━━━━━━━━━━┫
+┃ ......... ┃
+┣━━━━━━━━━━━┫
+┃  PAYLOAD  ┃
+┣━━━━━━━━━━━┫
+┃ ......... ┃
+┗━━━━━━━━━━━┛
+```
 
 ---
 
-# MAC
+# IPv4 address
+
+192.168.0.34
 
 ---
 
