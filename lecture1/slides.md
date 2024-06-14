@@ -124,6 +124,24 @@ MAC
 
 ---
 
+# Internet 🌐
+```
+💻╺━━━┳━━━╸BRIDGE╺━╸BRIDGE╺━━━━━━╸💻
+      ┃                                 
+💻╺━━━╋━━━╸BRIDGE╺┳╸BRIDGE╺━━━━━━╸💻
+      ┃           ┃                     
+💻╺━━━╋━━━╸BRIDGE╺┻╸BRIDGE╺━━┳━━━╸💻
+      ┃                      ┃
+💻╺━━━╋━━━╸BRIDGE╺┳╸BRIDGE╺━━╋━━━╸BRIDGE╺━━━┳━━━╸💻
+      ┃           ┃          ┃              ┃
+💻╺━━━┛           ╹          ┣━━━╸💻  💻╺━━━┛
+                  💻         ┃
+                             ┣━━━╸💻
+         💻╺━━┳━━━╸BRIDGE╺━━━┛
+              ╹
+              💻
+---
+
 # IPv4 packet
 ```
 ┏━━━━━━━━━━━┓
@@ -185,6 +203,13 @@ MAC
 
 ---
 
+# ARP (Address Resolution Protocol)
+```
+192.168.0.1 -> e8:6a:64:41:d6:9a
+```
+
+---
+
 # Routing
 
 ```
@@ -201,16 +226,64 @@ BRIDGE
   💻
 ```
 
-# hub vs. switch
+---
+
+# DHCP (Dynamic Host Configuration Protocol)
+
+```
+CLIENT                                 SERVER
+
+ ----------------- DISCOVER --------------->
+  FROM: e8:6a:64:41:d6:9a /   0.  0.  0.  0
+  TO:   ff:ff:ff:ff:ff:ff / 255.255.255.255
+```
 
 ---
 
-# IP packet overview
+# DHCP (Dynamic Host Configuration Protocol)
+
+```
+CLIENT                                 SERVER
+
+ <----------------- OFFER ------------------
+  FROM: 52:54:00:2d:6f:e1 / 192.168.  0.  1
+  FROM: e8:6a:64:41:d6:9a / 192.168.  0. 21
+    subnet mask: 255.255.255.255
+    DHCP server: 192.168.  0.  1
+    router:      192.168.  0.  2
+    DNS:           8.  8.  8.  8
+                   8.  8.  4.  4
+    lease time:  86400 seconds
+```
 
 ---
 
-# ARP
+# DHCP (Dynamic Host Configuration Protocol)
+
+```
+CLIENT                                 SERVER
+
+ ----------------- REQUEST ---------------->
+  FROM: e8:6a:64:41:d6:9a /   0.  0.  0.  0
+  TO:   ff:ff:ff:ff:ff:ff / 255.255.255.255
+    address:     192.168.  0. 21 
+    DHCP server: 192.168.  0.  1
+```
 
 ---
 
-# IP subnet & router/gateway
+# DHCP (Dynamic Host Configuration Protocol)
+
+```
+CLIENT                                 SERVER
+
+ <------------------ ACK -------------------
+  FROM: 52:54:00:2d:6f:e1 / 192.168.  0.  1
+  FROM: e8:6a:64:41:d6:9a / 192.168.  0. 21
+    subnet mask: 255.255.255.255
+    DHCP server: 192.168.  0.  1
+    router:      192.168.  0.  2
+    DNS:           8.  8.  8.  8
+                   8.  8.  4.  4
+    lease time:  86400 seconds
+```
