@@ -4,11 +4,35 @@ date: ""
 paging: "%d / %d"
 ---
 
+# Networks
+
+* Ethernet
+* IP
+
+---
+
 # Assumptions
 
 We don't deal with electronics.
 
 00010101001011001011000...
+
+---
+
+# How to connect
+
+```
+💻╺━━━━━━━╸💻
+```
+
+---
+
+# How to connect
+
+```
+💻╺━━━━━━━╸💻
+```
+* collision (CSMA/CD)
 
 ---
 
@@ -40,7 +64,7 @@ We don't deal with electronics.
 # How to connect
 
 ```
-💻╺━━━┳━━━╸💻
+💻╺━━━*━━━╸💻
       ┃
       ┃
       ╹
@@ -49,46 +73,6 @@ We don't deal with electronics.
 * addresses
 * throughput
 * collision (CSMA/CD)
-
----
-
-# How to connect
-
-```
-💻╺━━━┳━━━╸BRIDGE╺━━━┳━━━╸💻
-      ┃              ┃      
-💻╺━━━╋━━━╸BRIDGE╺━━━╋━━━╸💻
-      ┃              ┃      
-💻╺━━━┛              ┗━━━╸💻
-```
-* addresses
-* throughput
-* multiple routes
-* fault tolerance
-
----
-
-# How to connect
-
-```
-💻╺━━━┳━━━╸BRIDGE╺━━━━━━━╸💻
-      ┃                     
-💻╺━━━╋━━━╸BRIDGE╺━━━┳━━━╸💻
-      ┃              ┃      
-💻╺━━━┛              ┗━━━╸💻
-```
-* addresses
-* throughput
-* multiple routes
-* fault tolerance
-
----
-
-# Stack
-
-* Ethernet
-* IPv4
-* TCP
 
 ---
 
@@ -114,9 +98,8 @@ We don't deal with electronics.
 
 ---
 
-# Ethernet
+# MAC (Medium Access Control)
 
-MAC
 ```
 ❯ ip link show enp0s31f6 | grep link/ether
     link/ether e8:6a:64:41:d6:9a brd ff:ff:ff:ff:ff:ff
@@ -124,12 +107,56 @@ MAC
 
 ---
 
+# MAC (Medium Access Control)
+
+```
+❯ ip link show enp0s31f6 | grep link/ether
+    link/ether e8:6a:64:41:d6:9a brd ff:ff:ff:ff:ff:ff
+```
+
+`e8:6a:64`
+LCFC(HeFei) Electronics Technology co., ltd
+
+---
+
+# How to connect
+
+```
+💻╺━━━┳━━━╸BRIDGE╺━━━┳━━━╸💻
+      ┃              ┃ 
+💻╺━━━╋━━━╸BRIDGE╺━━━╋━━━╸💻
+      ┃              ┃ 
+💻╺━━━┛              ┗━━━╸💻
+```
+* addresses
+* throughput
+* multiple routes
+* fault tolerance
+
+---
+
+# How to connect
+
+```
+💻╺━━━┳━━━╸BRIDGE╺━━━━━━━╸💻
+      ┃ 
+💻╺━━━╋━━━╸BRIDGE╺━━━┳━━━╸💻
+      ┃              ┃
+💻╺━━━┛              ┗━━━╸💻
+```
+* addresses
+* throughput
+* multiple routes
+* fault tolerance
+
+---
+
 # Internet 🌐
 ```
 💻╺━━━┳━━━╸BRIDGE╺━╸BRIDGE╺━━━━━━╸💻
-      ┃                                 
+      ┃ 
 💻╺━━━╋━━━╸BRIDGE╺┳╸BRIDGE╺━━━━━━╸💻
-      ┃           ┃                     
+      ┃           ┃
 💻╺━━━╋━━━╸BRIDGE╺┻╸BRIDGE╺━━┳━━━╸💻
       ┃                      ┃
 💻╺━━━╋━━━╸BRIDGE╺┳╸BRIDGE╺━━╋━━━╸BRIDGE╺━━━┳━━━╸💻
@@ -147,7 +174,7 @@ MAC
 ┏━━━━━━━━━━━┓
 ┃ ......... ┃
 ┣━━━━━━━━━━━┫
-┃   TTL     ┃
+┃    TTL    ┃
 ┣━━━━━━━━━━━┫
 ┃ PROTOCOL  ┃
 ┣━━━━━━━━━━━┫
